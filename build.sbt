@@ -25,3 +25,10 @@ lazy val root = (project in file("."))
     ),
   )
 
+lazy val benchmarks = (project in file("benchmarks"))
+  .enablePlugins(JmhPlugin)
+  .dependsOn(root)
+  .settings(
+    addCompilerPlugin("org.typelevel" %% "kind-projector" % "0.10.3"),
+  )
+
